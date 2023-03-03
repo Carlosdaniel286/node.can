@@ -9,7 +9,7 @@ dontev.config()
 const sever = Express()
 
 
-sever.set('view engine' , 'mustacheExpress ')
+sever.set('view engine' , 'mustache')
 sever.set('views' , path.join(__dirname, 'views'))
 sever.engine('mustache' , mustacheExpress())
 
@@ -18,6 +18,6 @@ sever.use(Express.static(path.join(__dirname, '../public')))
 // rotas
 sever.use(Mainroutes)
 sever.use((req,res)=>{
-    res.send('pagina não encontrada!')
+    res.render('pages/404')
 })
 sever.listen(process.env.PORT)
